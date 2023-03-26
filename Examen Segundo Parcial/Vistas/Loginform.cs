@@ -5,14 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using BdDatos;
 using System.Windows.Forms;
+using Entidades;
+
+     
 
 namespace Vistas
 {
-    public partial class Login : Form
+    public partial class Loginform : Form
     {
-        public Login()
+        public Loginform()
         {
             InitializeComponent();
         }
@@ -34,10 +37,24 @@ namespace Vistas
             }
             errorProvider1.Clear();
 
-            Menu menuformulario = new Menu();
-            this.Hide();
-            menuformulario.Show();
+           
+            Login login = new Login(usuaritxt.Text, contrasentxt.Text);
 
+            UsuarioDB usuarioDB = new UsuarioDB();
+            Usuario usuario = new Usuario();
+            usuario = usuarioDB.Autenticar(login);
+
+            if (usuario != null)    
+            {
+                //Mandar al menu 
+                Menu menuformulario = new Menu();
+                this.Hide();
+                menuformulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("datos del usurio incorrectos");
+            }
         }
 
         private void cancelabtn_Click(object sender, EventArgs e)

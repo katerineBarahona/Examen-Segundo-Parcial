@@ -46,10 +46,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UsuariosdataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.fotopictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosdataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // modificarbtn
@@ -112,10 +112,11 @@
             this.adjuntarimagensbtn.Image = ((System.Drawing.Image)(resources.GetObject("adjuntarimagensbtn.Image")));
             this.adjuntarimagensbtn.Location = new System.Drawing.Point(610, 123);
             this.adjuntarimagensbtn.Name = "adjuntarimagensbtn";
-            this.adjuntarimagensbtn.Size = new System.Drawing.Size(45, 53);
+            this.adjuntarimagensbtn.Size = new System.Drawing.Size(36, 53);
             this.adjuntarimagensbtn.TabIndex = 30;
             this.adjuntarimagensbtn.Text = "...";
             this.adjuntarimagensbtn.UseVisualStyleBackColor = true;
+            this.adjuntarimagensbtn.Click += new System.EventHandler(this.adjuntarimagensbtn_Click);
             // 
             // fotopictureBox2
             // 
@@ -200,22 +201,22 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dataGridView1
+            // UsuariosdataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-11, 352);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(793, 150);
-            this.dataGridView1.TabIndex = 37;
+            this.UsuariosdataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UsuariosdataGridView1.Location = new System.Drawing.Point(-11, 352);
+            this.UsuariosdataGridView1.Name = "UsuariosdataGridView1";
+            this.UsuariosdataGridView1.RowHeadersWidth = 51;
+            this.UsuariosdataGridView1.RowTemplate.Height = 24;
+            this.UsuariosdataGridView1.Size = new System.Drawing.Size(1172, 229);
+            this.UsuariosdataGridView1.TabIndex = 37;
             // 
             // usuariosform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 492);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1157, 582);
+            this.Controls.Add(this.UsuariosdataGridView1);
             this.Controls.Add(this.modificarbtn);
             this.Controls.Add(this.guardarbtn);
             this.Controls.Add(this.eliminarbtn);
@@ -233,9 +234,10 @@
             this.Controls.Add(this.label1);
             this.Name = "usuariosform";
             this.Text = "usuariosform";
+            this.Load += new System.EventHandler(this.usuariosform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fotopictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsuariosdataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +261,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView UsuariosdataGridView1;
     }
 }

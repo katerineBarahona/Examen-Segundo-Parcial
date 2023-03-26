@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Entidades;
+using BdDatos;
 
 namespace Vistas
 {
@@ -16,16 +17,22 @@ namespace Vistas
                 InitializeComponent();
             }
             string tipooperacion = string.Empty;
-            private void btnnuevo_Click(object sender, EventArgs e)
-            {
+
+           UsuarioDB usuarioDB = new UsuarioDB();
+            Usuario user = new Usuario();
+
+        private void btnnuevo_Click(object sender, EventArgs e)
+        {
             
-            
+              
                     habilitarcontoles();
 
                     guardarbtn.Enabled = true;
                     tipooperacion = "nuevo";
 
-            }
+
+
+        }
             private void habilitarcontoles()
             {
                 codigotxt.Enabled = true;
@@ -64,17 +71,7 @@ namespace Vistas
 
             }
 
-            private void adjuntarimagenbtn_Click(object sender, EventArgs e)
-            {
-                OpenFileDialog dialog = new OpenFileDialog();
-                DialogResult dialogResult = dialog.ShowDialog();
-
-                if (dialogResult == DialogResult.OK)
-                {
-                    fotopictureBox2.Image = Image.FromFile(dialog.FileName);
-                }
-
-            }
+            
 
             
         private void cancelrabtn_Click_1(object sender, EventArgs e)
@@ -113,7 +110,7 @@ namespace Vistas
                 }
                 errorProvider1.Clear();
 
-                Usuario user = new Usuario();
+                
                 user.codigousuario = codigotxt.Text;
                 user.nombre = nombretxt.Text;
                 user.contrasena = contrasenatxt.Text;
@@ -129,6 +126,15 @@ namespace Vistas
                     user.Foto = MS.GetBuffer();
                 }
 
+                bool inserto = usuarioDB.insertar(user);
+                if (inserto)
+                {
+                    MessageBox.Show("Registro Guardado");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar el Registro");
+                }
 
                 // Insertar en la base de datos
 
@@ -146,6 +152,31 @@ namespace Vistas
 
         private void eliminarbtn_Click(object sender, EventArgs e)
         {
+
+        }
+        
+        private void traerusuarios()
+        {
+            DataTable dt = new DataTable();
+            dt = usuarioDB.DevolverUsuario();
+            UsuariosdataGridView1.DataSource = dt;
+
+        }
+
+        private void usuariosform_Load(object sender, EventArgs e)
+        {
+            traerusuarios();
+        }
+
+        private void adjuntarimagensbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            DialogResult dialogResult = dialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                fotopictureBox2.Image = Image.FromFile(dialog.FileName);
+            }
 
         }
     }

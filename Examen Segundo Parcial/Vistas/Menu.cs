@@ -25,5 +25,17 @@ namespace Vistas
 
             userform.Show();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GeneTicketstoolStripButton1_Click(object sender, EventArgs e)
+        {
+            Ticketsform facturaForm =  new Ticketsform();
+            facturaForm.MdiParent = this;
+            facturaForm.Show(); 
+        }
     }
 }

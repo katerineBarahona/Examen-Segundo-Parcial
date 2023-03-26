@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class login
+    public class Login
     {
 
         public string codigousuario { get; set; }
         public string contrasena { get; set; }
 
 
-        public login()
+        public Login()
         {
         }
 
-        public login(string codigousuario, string contrasena)
+        public Login(string codigousuario, string contrasena)
         {
             this.codigousuario = codigousuario;
             this.contrasena = contrasena;
