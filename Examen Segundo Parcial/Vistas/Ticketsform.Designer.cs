@@ -284,6 +284,7 @@
             this.guardarticketbtn.TabIndex = 25;
             this.guardarticketbtn.Text = "Guardar Ticket";
             this.guardarticketbtn.UseVisualStyleBackColor = false;
+            this.guardarticketbtn.Click += new System.EventHandler(this.guardarticketbtn_Click);
             // 
             // Ticketsform
             // 

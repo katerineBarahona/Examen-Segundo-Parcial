@@ -14,5 +14,10 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+        private void guardarticketbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
